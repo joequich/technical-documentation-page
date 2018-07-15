@@ -1,13 +1,19 @@
 body{
     background: #EAF2F8;
-    display:grid;
-    grid-template-columns: 315px auto;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Open Sans', sans-serif;
-
+    display:grid;
+    grid-template-columns: 315px 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "navbar main main main"
+    "navbar main main main"
+    "navbar main main main";
 }
+
+
 
 header{
     font-size: 1.9em;
@@ -15,21 +21,18 @@ header{
 }
 
 #navbar{
+    grid-area: navbar;
     display: flex;
     flex-direction: column;
-    /*background-color: red;*/
     position: fixed;
-    left: 0;
-    border-right: 1px solid #555;
     width: 315px;
+    border-right: 1px solid #555;
     height: 100%;
-
 }
 
 #navbar header{
     padding: 20px;
     justify-content: flex-start;
-    /*background-color: green;*/
     text-align: center;
 }
 
@@ -38,30 +41,33 @@ header{
     height:100%;
     position: relative;
     overflow-y:auto;
-
     list-style: none;
     margin: 0;
     padding: 0;
-
-    /*background-color: orange;*/
+    border: 1px solid #555;
 }
 
 .nav-link{
-
     text-decoration: none;
     display: block;
     padding: 10px;
     border-top: 1px solid #555;
     border-bottom: 1px solid #555;
     color: black;
-    /*background: green;*/
 }
 
 
 @media (max-width: 815px)  {
+    #navbar{
+        position: static;
+        width: 100%;
+        height: 300px;
+    }
     body{
-        grid-template-rows: auto;
-        background: white;
+        grid-template-areas:
+        "navbar navbar navbar navbar"
+        "main  main main main"
+        "main  main main main";
     }
 }
 
@@ -72,22 +78,23 @@ header{
 code{
     background-color: #FBFCFC;
     display: block;
+    white-space: pre;
+    line-height: 1.5;
     padding:15px;
     margin:10px;
-
+    width: 100%;
 }
 
 #main-doc{
+    height: 100%;
+    grid-area: main;
     padding: 20px 20px 0px 20px;
     display: flex;
     flex-direction: column;
-    /*background-color: brown;*/
-    position: absolute;
-    left: 315px;
-
-
 }
 
 .main-section{
-
+    padding: 20px;
+    text-align: justify;
+    line-height: normal;
 }
