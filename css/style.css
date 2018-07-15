@@ -58,7 +58,7 @@ header{
 }
 
 
-@media query (max-width: 815px)  {
+@media (max-width: 815px)  {
     body{
         grid-template-rows: auto;
         background: white;
